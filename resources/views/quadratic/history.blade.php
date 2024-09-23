@@ -6,6 +6,16 @@
     <title>История решений</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        // JavaScript function to confirm deletion
+        function confirmDelete(event) {
+            event.preventDefault(); // Prevent the form from submitting immediately
+
+            if (confirm("Вы уверены, что хотите удалить это решение?")) {
+                event.target.submit(); // Submit the form if the user clicks "OK"
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container mt-5">
@@ -35,7 +45,7 @@
                                         <td>{{ $solution->c }}</td>
                                         <td>{{ $solution->solution }}</td>
                                         <td>
-                                            <form action="{{ route('quadratic.destroy', $solution->id) }}" method="POST">
+                                            <form action="{{ route('quadratic.destroy', $solution->id) }}" method="POST" onsubmit="confirmDelete(event)">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
