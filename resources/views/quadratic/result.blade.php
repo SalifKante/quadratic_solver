@@ -54,9 +54,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Quadratic Equation Solution</h1>
+        <h1>Решение квадратного уравнения</h1>
         <p>{{ $solution }}</p>
-        <a href="{{ route('quadratic.index') }}" class="btn btn-primary">Go Back</a>
+        <a href="{{ route('quadratic.index') }}" class="btn btn-primary">Возвращаться</a>
     </div>
 
     <!-- Bootstrap 5 JS and dependencies -->
