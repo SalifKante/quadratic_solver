@@ -16,7 +16,8 @@ return new class extends Migration
             $table->double('a'); // Coefficient a
             $table->double('b'); // Coefficient b
             $table->double('c'); // Coefficient c
-            $table->text('solution'); // Solution text, can hold single or multiple solutions
+            $table->double('x1')->nullable();  // Store the first solution
+            $table->double('x2')->nullable();  // Store the second solution
             $table->timestamps();
         });
     }

@@ -12,6 +12,7 @@ ax^2 + bx + c = 0
 -   Displays solutions and stores a history of previous calculations.
 -   Pagination for browsing the solution history.
 -   Delete functionality for removing past calculations.
+-   Unit tests for key functionalities.
 
 ## Technologies Used
 
@@ -19,6 +20,7 @@ ax^2 + bx + c = 0
 -   **MySQL**: Database for storing equation solutions.
 -   **Bootstrap 5**: For responsive design and styling.
 -   **Docker**: To create a consistent development environment.
+-   **PHPUnit**: For unit and feature testing.
 
 ## Setup Instructions
 
@@ -74,7 +76,22 @@ ax^2 + bx + c = 0
 
 7. Visit `http://localhost:8000` in your browser to access the app.
 
-## Additional Information
+## Running Unit Tests
 
--   **Docker**: You can use Docker to run the project in a containerized environment.
--   After running the migrations, please configure the database credentials in the `.env` file according to your setup to ensure proper connection to the database.
+The project includes unit and feature tests to ensure the correctness of the quadratic equation solver and its functionalities.
+
+1. To run the unit tests, execute the following command:
+
+    ```bash
+    php artisan test
+    ```
+
+    This will run all the defined test cases in the `tests/Feature` and `tests/Unit` directories.
+
+2. To run tests with code coverage (if set up), you can use:
+
+    ```bash
+    ./vendor/bin/phpunit --coverage-text
+    ```
+
+    This will generate a report showing which parts of the code are covered by tests.

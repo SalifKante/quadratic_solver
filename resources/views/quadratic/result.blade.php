@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quadratic Equation Solution</title>
+    <title>Решение квадратного уравнения</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -55,8 +55,17 @@
 <body>
     <div class="container">
         <h1>Решение квадратного уравнения</h1>
-        <p>{{ $solution }}</p>
-        <a href="{{ route('quadratic.index') }}" class="btn btn-primary">Возвращаться</a>
+
+        <!-- Display the result based on the availability of x1 and x2 -->
+        @if (!is_null($x1) && !is_null($x2))
+            <p>Два решения: X1 = {{ $x1 }}, X2 = {{ $x2 }}</p>
+        @elseif (!is_null($x1))
+            <p>Одно решение: X1 = {{ $x1 }}</p>
+        @else
+            <p>Нет действительных решений</p>
+        @endif
+
+        <a href="{{ route('quadratic.index') }}" class="btn btn-primary">Назад</a>
     </div>
 
     <!-- Bootstrap 5 JS and dependencies -->

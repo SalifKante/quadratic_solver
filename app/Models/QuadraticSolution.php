@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class QuadraticSolution extends Model
 {
     use HasFactory;
-    protected $fillable = ['a', 'b', 'c', 'solution'];
+    protected $fillable = ['a', 'b', 'c', 'x1', 'x2'];
+
 }

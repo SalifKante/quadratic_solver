@@ -33,7 +33,6 @@
 
         .form-control {
             font-size: 14px;
-            margin-bottom: 15px;
             padding: 10px;
         }
 
@@ -57,6 +56,26 @@
         .link:hover {
             text-decoration: underline;
         }
+
+        .history-link {
+            text-align: right;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+
+        .form-control {
+            width: 70%;
+        }
     </style>
 </head>
 <body>
@@ -64,21 +83,23 @@
         <h1>Решение квадратного уравнения</h1>
         <form action="{{ route('quadratic.solve') }}" method="POST">
             @csrf
-            <div class="mb-3">
+            <div class="form-group">
                 <label for="a" class="form-label">a =</label>
                 <input type="number" name="a" class="form-control" placeholder="введите значение..." required>
             </div>
-            <div class="mb-3">
+            <div class="form-group">
                 <label for="b" class="form-label">b =</label>
                 <input type="number" name="b" class="form-control" placeholder="введите значение..." required>
             </div>
-            <div class="mb-3">
+            <div class="form-group">
                 <label for="c" class="form-label">c =</label>
                 <input type="number" name="c" class="form-control" placeholder="введите значение..." required>
             </div>
             <button type="submit" class="btn btn-primary">Найти решение</button>
         </form>
-        <a href="{{ route('quadratic.history') }}" class="link">История</a>
+        <div class="history-link">
+            <a href="{{ route('quadratic.history') }}" class="link">История</a>
+        </div>
     </div>
 
     <!-- Bootstrap 5 JS and dependencies -->

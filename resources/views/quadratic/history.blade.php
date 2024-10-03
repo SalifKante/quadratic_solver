@@ -9,10 +9,10 @@
     <script>
         // JavaScript function to confirm deletion
         function confirmDelete(event) {
-            event.preventDefault(); // Prevent the form from submitting immediately
+            event.preventDefault();
 
             if (confirm("Вы уверены, что хотите удалить это решение?")) {
-                event.target.submit(); // Submit the form if the user clicks "OK"
+                event.target.submit();
             }
         }
     </script>
@@ -33,7 +33,8 @@
                                     <th scope="col">Коэффициент a</th>
                                     <th scope="col">Коэффициент b</th>
                                     <th scope="col">Коэффициент c</th>
-                                    <th scope="col">Решение</th>
+                                    <th scope="col">X1</th>
+                                    <th scope="col">X2</th>
                                     <th scope="col">Действие</th>
                                 </tr>
                             </thead>
@@ -43,7 +44,20 @@
                                         <td>{{ $solution->a }}</td>
                                         <td>{{ $solution->b }}</td>
                                         <td>{{ $solution->c }}</td>
-                                        <td>{{ $solution->solution }}</td>
+                                        <td>
+                                            @if($solution->x1 !== null)
+                                                {{ $solution->x1 }}
+                                            @else
+                                                Нет действительных решений
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($solution->x2 !== null)
+                                                {{ $solution->x2 }}
+                                            @else
+                                                Нет второго решения
+                                            @endif
+                                        </td>
                                         <td>
                                             <form action="{{ route('quadratic.destroy', $solution->id) }}" method="POST" onsubmit="confirmDelete(event)">
                                                 @csrf
